@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Red+Hat+Display&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+
+* {
+    font-family: 'Red Hat Display', sans-serif;
+    margin: 0; padding: 0;
+}
+
+#navbar {
+    position: fixed;
+    background-color: limegreen;
+    display: flex;
+    left: 0; top: 0;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 7vh;
+}
+
+#navbar li {
+    font-family: 'Ubuntu', sans-serif !important;
+    font-size: 1.2em;
+    color: whitesmoke;
+    padding: 0.5em 1em 0.5em 1em;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    display: inline-block;
+}
+
+#navbar li:hover {
+    background-color: lime;
+    border-radius: 8%;
+    color: lightgray;
+    padding: 1em 1em 1em 1em;
+}
+
+body {
+    padding-top: 15vh;
+    padding-left: 5vw; padding-right: 5vw;
+}
