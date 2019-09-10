@@ -192,3 +192,136 @@ body {
   font-weight: bold;
 }
 
+#body-portofolio {
+  background-color: #212121;
+  color: #ffffe5;
+}
+#header {
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 80px;
+  background-color: #ffecb3;
+  top: 0; left: 0; right: 0;
+}
+#header-img {
+  width: 100%;
+  max-width: 320px;
+}
+#nav-bar ul li {
+  display: inline;
+  color: #616161;
+}
+.nav-link {
+  text-decoration: none;
+  color: black;
+  padding: 1.2em;
+  font-family: 'Ubuntu' !important;
+}
+.nav-link:hover {
+  border: 1px solid;
+  border-color: transparent;
+  border-radius: 3px;
+  background-color: #cbba83;
+}
+#email-submit {
+  display: flex;
+  flex-direction: column;
+  padding-top: 5em;
+  align-items: center;
+  justify-content: center;
+}
+#email-submit h2 {
+  margin-bottom: 1.5vh;
+}
+#email-submit form {
+  display: flex;
+  flex-direction: column;
+}
+#email {
+  height: 2.5em;
+  width: 30vw;
+  border: 1px solid;
+  border-color: white;
+  border-radius: 4px;
+  margin-bottom: 1em;
+  padding-left: 0.5em;
+}
+#submit {
+  height: 2.5em;
+  width: 45%;
+  margin: auto;
+  font-family: 'Ubuntu' !important;
+  font-size: 1em;
+  border: 2px solid;
+  border-color: #ffecb3;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #ffffe5;
+}
+#submit:hover {
+  animation-name: button-fade;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes button-fade {
+  100% {
+    background-color: #cbba83;
+  }
+}
+#features {
+  padding: 1.5em;
+  text-align: justify;
+  line-height: 6vh;
+}
+#video-frame {
+  display: flex;
+  justify-content: center;
+}
+#contact-us {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  align-items: center;
+}
+#contact-us h2 {
+  text-align: center;
+  margin-bottom: 1.5vh;
+}
+#contact-us .input-class {
+  width: 100%;
+  max-width: 60%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  height: 5.5vh;
+  border: 1px solid;
+  border-color: transparent;
+  border-radius: 4px;
+  padding-left: 1em;
+}
+#contact-us textarea {
+  height: 40vh !important;
+}
+.btn {
+  height: 2.5em;
+  width: 45%;
+  margin: auto;
+  font-family: 'Ubuntu' !important;
+  font-size: 1em;
+  border: 2px solid;
+  border-color: #ffecb3;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #ffffe5;
+}
+.btn:hover {
+  animation-name: button-fade;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+@media (max-width: 480px) {
+  #header {
+    flex-wrap: wrap;
+  }
+  }
