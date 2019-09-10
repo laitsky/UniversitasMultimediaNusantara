@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Red+Hat+Display&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 * {
     font-family: 'Red Hat Display', sans-serif;
@@ -8,7 +9,7 @@
 
 #navbar {
     position: fixed;
-    background-color: limegreen;
+    background-color: green;
     display: flex;
     left: 0; top: 0;
     width: 100%;
@@ -18,23 +19,177 @@
 }
 
 #navbar li {
-    font-family: 'Ubuntu', sans-serif !important;
+    font-family: 'Roboto', sans-serif !important;
     font-size: 1.2em;
-    color: whitesmoke;
-    padding: 0.5em 1em 0.5em 1em;
+    color: white;
     margin-left: 5vw;
     margin-right: 5vw;
     display: inline-block;
 }
 
 #navbar li:hover {
-    background-color: lime;
-    border-radius: 8%;
-    color: lightgray;
-    padding: 1em 1em 1em 1em;
+    background-color: limegreen;
+    border-radius: 5%;
+    color: yellow;
+    padding: 0.5em 1em 0.5em 1em;
+    transition: 0.2s;
 }
 
 body {
     padding-top: 15vh;
     padding-left: 5vw; padding-right: 5vw;
 }
+  
+#form-body {
+    padding-bottom: 2.5vh;
+    background-color: #0fc27e;
+    color: white;
+}
+#form-title {
+    text-align: center;
+}
+
+#form-title h1, h3 {
+    margin-bottom: 0.75em;
+}
+#survey-form {
+    display: grid;
+    margin: 2vh 16vw 2vh 16vw;
+    background-color: lightblue;
+    padding: 2em;
+    border-radius: 5px;
+}
+
+#survey-form label {
+    color: black;
+    font-size: 1.1em;
+    margin-bottom: 1vh;
+}
+
+#survey-form input, select, textarea {
+  border-radius: 5px;
+  border: 0.5px solid rgb(15, 173, 194);
+  padding: 0.75em;
+}
+
+.pseudo-fieldset input {
+  margin-left: 2vw;
+  margin-right: 2vw;
+  margin-bottom: 2vh;
+}
+
+.checkbox-form input {
+  margin-top: 2vh;
+  margin-left: 4.5vw;
+  margin-right: 4.5vw;
+}
+#survey-form textarea {
+  padding-bottom: 25vh;
+}
+#survey-form button {
+  margin-top: 2vh;
+}
+#survey-form label {
+    padding: 1.0em;
+}
+#dropdown {
+    margin-bottom: 1.5vh;
+}
+#improved-thing {
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
+#submit-form-button {
+    font-size: 1em;
+    padding: 1em;
+    border-radius: 5px;
+    border: none;
+}
+
+#submit-form-button:hover {
+    background-color: grey;
+    color: white;
+    transition: 0.3s;
+}
+#tribute-navbar {
+  position: fixed;
+  background-color: #ad8286;
+  display: flex;
+  left: 0; top: 0;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 7vh;
+}
+#tribute-navbar li {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 1.2em;
+  color: white;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  display: inline-block;
+}
+#tribute-navbar li:hover {
+  background-color: #8286ad;
+  border-radius: 5%;
+  color: white;
+  padding: 0.5em 1em 0.5em 1em;
+  transition: 0.2s;
+}
+#tribute-body {
+  font-family: Roboto;
+  color: #616161;
+  background-color: #82ada9;
+  padding: 30px;
+}
+#tribute-title {
+  font-size: 2em;
+  text-align: center;
+  background-color: #e5ffff;
+  padding: 25px;
+  margin-top: 40px;
+  border: 3px solid;
+  border-radius: 10px;
+  border-color: #cbba83;
+}
+#tribute-title p {
+  font-size: 30px;
+}
+#tribute-img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#tribute-img-caption {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 1.2em;
+  color: #ffffb0;
+  margin-bottom: 30px;
+}
+#tribute-info {
+  line-height: 2;
+  text-align: justify;
+  background-color: #e5ffff;
+  padding-top: 10px;
+  padding-left: 25px;
+  padding-right: 35px;
+  margin-top: 40px;
+  border: 3px solid;
+  border-radius: 10px;
+  border-color: #cbba83;
+}
+#tribute-link {
+  text-align: center;
+  display: block;
+  padding-top: 10px;
+  font-size: 1.2em;
+  color: #3e2723;
+}
+#tribute-link:hover {
+  font-weight: bold;
+}
+
