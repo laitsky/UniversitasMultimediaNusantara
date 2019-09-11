@@ -325,3 +325,92 @@ body {
     flex-wrap: wrap;
   }
   }
+#home-body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+#welcome-section h1 {
+  background-color: #9477ca;
+  background-image: linear-gradient(90deg, transparent 50%, rgba(255,255,255,.5) 50%);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fffffb;
+  font-size: 3.5em;
+  text-decoration: underline;
+}
+
+#welcome-section h2 {
+  background-color: #F48FB1;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fffffb;
+  font-size: 3.5em;
+  padding-left: 3.5vw;
+  margin-right: 5vw;
+}
+#experience-section {
+  background-color: #ffd54f;
+  widows: 100%;
+  height: 100vh;
+  padding-top: 2vh;
+  padding-bottom: 13vh;
+}
+#experience-section h1 {
+  margin: 2vh 0 1vh 0;
+  padding-bottom: 5vh;
+  color: #4fd1ff;
+  text-align: center;
+  font-size: 3em;
+  font-weight: bold;
+}
+
+#experience-paragraph {
+  color: #4f79ff;
+  margin: 2.5vh 9vw 4vh 9vw;
+}
+
+#experience-paragraph h2 {
+  font-weight: bold;
+  margin-bottom: 1.5vh;
+}
+
+#experience-paragraph p {
+  margin-top: 2vh;
+  margin-bottom: 3.5vh;
+}
+
+#home-navbar {
+  position: fixed;
+  background-color: #36454f;
+  display: flex;
+  left: 0; top: 0;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 7vh;
+}
+
+#home-navbar li {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 1.2em;
+  color: white;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  display: inline-block;
+}
+
+#home-navbar li:hover {
+  border-radius: 5%;
+  color: grey;
+  padding: 0.5em 1em 0.5em 1em;
+  transition: 0.2s;
+}
