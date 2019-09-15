@@ -1,0 +1,66 @@
+/* TEXT */
+.top {
+    text-align: center;
+    width: 70%;
+}
+
+/* TABLE */
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+/* BUTTON */
+.button-posts {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.button-comments {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 10px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+/* CARD */
+
+.posts-card-container {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.1em;
+    width: 70%;
+    border: 2px solid grey;
+    border-radius: 4px;
+    box-shadow: 3px 4px 4px grey;
+}
+
+.posts-card-container p, h3 {
+    margin-left: 1vw;
+}
+
+.child-card-container {
+    width: 100%;
+    border-bottom: 2px solid grey;
+    border-radius: 4px;
+    box-shadow: 4px grey;
+}
