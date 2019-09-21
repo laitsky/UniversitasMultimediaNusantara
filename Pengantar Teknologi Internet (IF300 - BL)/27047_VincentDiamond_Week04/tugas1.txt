@@ -1,0 +1,3 @@
+const merupakan tipe data variable yang digunakan untuk konstanta, yang dimana artinya diharapkan dari nilai variabel tersebut akan bernilai tetap dan tidak dapat diubah
+var merupakan tipe data dinamis yang memiliki jangkauan scope fungsi
+let merupakan tipe data dinamis yang memiliki jangkauan scope blok
