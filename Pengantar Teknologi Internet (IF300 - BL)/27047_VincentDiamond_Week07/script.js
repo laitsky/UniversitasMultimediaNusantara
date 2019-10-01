@@ -8,7 +8,7 @@ function loginFunc() {
         window.alert("Username and Password cannot be NULL");
     }
     else if(username.value == "00000027047" && password.value == "pti2019") {
-        window.location.href = "random_undian.html"
+        window.location.href = "random_undian.html";
     }
     else {
         window.alert("Wrong username or password");
