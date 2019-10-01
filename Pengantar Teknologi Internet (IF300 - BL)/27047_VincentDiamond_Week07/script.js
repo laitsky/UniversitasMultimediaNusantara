@@ -18,7 +18,7 @@ function loginFunc() {
 
 function randomizeNumber() {
     let inputBox = document.getElementById("angka-undian");
-    inputBox.value = Math.floor(Math.random() * Math.floor(100));
+    inputBox.value = Math.floor(Math.random() * 100);
 }
 
 function submitInfo() {
