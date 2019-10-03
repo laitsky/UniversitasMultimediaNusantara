@@ -1,0 +1,33 @@
+nav ul li {
+    list-style-type: none;
+    display: inline-block;
+}
+
+#container-flex {
+    display: flex;
+    justify-content: space-around;
+}
+
+.c1, .c2, .c3, .c4, .c5 {
+    padding: 2em;
+    font-size: 2em;
+}
+.c1 {
+    background-color: red;
+}
+
+.c2 {
+    background-color: aqua;
+}
+
+.c3 {
+    background-color: green;
+}
+
+.c4 {
+    background-color: purple;
+}
+
+.c5 {
+    background-color: yellow;
+}
