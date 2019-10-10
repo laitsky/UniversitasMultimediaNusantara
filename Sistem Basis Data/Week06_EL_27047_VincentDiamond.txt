@@ -1,0 +1,191 @@
+//1.)
+CREATE DATABASE restaurant;
+USE restaurant;
+SET FOREIGN_KEY_CHECKS=0;
+CREATE TABLE Employee(
+	id_employee VARCHAR(5) PRIMARY KEY,
+	nama_depan VARCHAR(30) NOT NULL,
+	nama_belakang VARCHAR(30),
+	jabatan VARCHAR(30) NOT NULL,
+	alamat VARCHAR(30) NOT NULL,
+	email VARCHAR(30) NOT NULL,
+	no_telp VARCHAR(15) NOT NULL,
+	gaji INTEGER);
+
+CREATE TABLE Customer(
+	id_customer VARCHAR(5) PRIMARY KEY,
+	nama_depan VARCHAR(30),
+	nama_belakang VARCHAR(30) NOT NULL,
+	alamat VARCHAR(30) NOT NULL,
+	email VARCHAR(30) NOT NULL,
+	nomor_telp VARCHAR(15) NOT NULL);
+
+CREATE TABLE Paket(
+	id_paket VARCHAR(5) PRIMARY KEY,
+	harga_paket INTEGER);
+
+CREATE TABLE Menu(
+	id_menu VARCHAR(5) PRIMARY KEY,
+	nama_menu VARCHAR(30) NOT NULL,
+	jenis_menu VARCHAR(10) NOT NULL,
+	id_paket VARCHAR(5) NOT NULL,
+	FOREIGN KEY (id_paket) REFERENCES Paket(id_paket))engine=InnoDB;
+
+CREATE TABLE Transaction(
+	id_customer VARCHAR(5),
+	id_employee VARCHAR(5),
+	id_paket VARCHAR(5),
+	transaction_date DATE, 
+	PRIMARY KEY(id_customer, id_paket, id_employee),
+	FOREIGN KEY (id_customer) REFERENCES Customer(id_customer),
+	FOREIGN KEY (id_paket) REFERENCES Paket(id_paket),
+	FOREIGN KEY (id_employee) REFERENCES Employee(id_employee))engine=InnoDB;
+
+//2.)
+INSERT INTO Employee
+VALUES  ('E0001', 'Sax', 'Fucelli', 'Manager', '04 Numero Quatro', 'sax@yahoo.com', '084-4444-4444', 10000000),
+        ('E0002', 'Smitty', 'Werbenmanjensen', 'Customer Service', '01 Under Sea', 'smitty@gmail.com', '081-111-1111', 5000000),
+        ('E0003', 'Maximillion', 'Pegasus', 'Cashier', '18 Deulist Kingdom', 'maximillion@live.com', '083-171-1377', 2000000),
+        ('E0004', 'Oktavia', 'Seckendorff', 'Chef', '70 Under World', 'oktavia@yahoo.com', '085-120-8753', 3000000),
+        ('E0005', 'Frejya', 'Wion', 'Chef', '05 Walkure Space', 'frejya@gmail.com', '088-237-6718', 3500000),
+	('E0006', 'Won', '', 'Chef', '23 Harvest Moon', 'won@live.com', '089-671-0283', 3750000),
+	('E0007', 'Barney', '', 'Cashier', '45 Dino Street', 'barney@yahoo.com', '087-332-9716', 2500000);
+
+//3.)
+INSERT INTO Customer 
+VALUES 	('C0001', 'Santa', 'Monica', '232 Database Annex', 'santa@live.com', '083-221-8762'),
+	('C0002', 'Sil', 'Eighty', '80 Downhill Building', 'sil@gmail.com', '082-123-0938'),
+	('C0003', 'Chandra', 'Nalaar', '191 Magic Land', 'chandra@yahoo.com', '089-382-8371'),
+	('C0004', 'Gideon', 'Zura', '202 Indes Annex', 'gideon@live.com', '084-829-3882'),
+	('C0005', 'Strygwyr', '', '147 Bloody Annex', 'strygwyr@gmail.com', '081-826-2372'),
+	('C0006', 'Mogul', 'Kahn', '182 ex Building', 'mogul@yahoo.com', '085-562-7782'),
+	('C0007', 'John', 'Cena', '92 Smack Land', 'john@live.com', '086-829-9283'),
+	('C0008', 'Budi', '', '141 Wonder Land', 'budi@gmail.com', '087-927-8263'),
+	('C0009', 'Immelman', '', '220 Plane Building', 'immelman@yahoo.com', '088-283-9372'),
+	('C0010', 'Datboi', '', '31 Frog Annex', 'datboi@gmail.com', '081-028-0373');
+
+//4.)
+INSERT INTO Paket
+VALUES  ('P0001', 3000000),
+	('P0002', 2500000),
+	('P0003', 2000000);
+
+//5.) 
+INSERT INTO Menu
+VALUES  ('M0001', 'Nasi Kecap', 'Makanan', 'P0001'),
+	('M0002', 'Soda Mentos', 'Minuman', 'P0002'),
+	('M0003', 'Es Krim Panas', 'Dessert', 'P0003'),
+	('M0004', 'Ayam Om', 'Makanan', 'P0002'),
+	('M0005', 'Teh Pedas', 'Minuman', 'P0001'),
+	('M0006', 'Giga Pudding', 'Dessert', 'P0002'),
+	('M0007', 'Nasi UMN', 'Makanan', 'P0003'),
+	('M0008', 'Kopi Setarbak', 'Minuman', 'P0003'),
+	('M0009', 'Kue Rebus', 'Dessert', 'P0001'),
+	('M0010', 'Gudetama', 'Dessert', 'P0001');
+
+//6.)
+INSERT INTO Transaction
+VALUES  ('C0001', 'E0002', 'P0003', '2016-02-25'),
+	('C0002', 'E0001', 'P0002', '2016-03-12'),
+	('C0003', 'E0002', 'P0002', '2016-04-10'),
+	('C0004', 'E0004', 'P0001', '2016-06-28'),
+	('C0005', 'E0001', 'P0002', '2016-03-30'),
+	('C0006', 'E0003', 'P0003', '2016-03-10'),
+	('C0007', 'E0005', 'P0001', '2016-03-01'),
+	('C0008', 'E0002', 'P0002', '2016-08-30'),
+	('C0009', 'E0002', 'P0003', '2016-11-02'),
+	('C0010', 'E0005', 'P0001', '2016-08-18');
+
+//7.)
+SELECT CONCAT(nama_depan, ' ', nama_belakang) AS 'Nama Customer'
+FROM Customer
+ORDER BY nama_depan;
+
+//8.)
+SELECT MONTHNAME(transaction_date) AS Bulan, COUNT(*) as jumlah
+FROM Transaction
+GROUP BY Bulan
+ORDER BY transaction_date;
+
+//9.)
+SELECT CONCAT(nama_depan, ' ', nama_belakang) AS Nama, gaji AS Gaji
+FROM Employee
+WHERE gaji=(SELECT min(gaji) FROM Employee WHERE email LIKE '%gmail.com');
+
+//10.)
+SELECT ID_Employee as "Kode Pekerja", COUNT(*) AS "Banyak Transaksi", GROUP_CONCAT(DATE_FORMAT(transaction_date, "%D %M %Y")) as "Jadwal Transaksi"
+FROM transaction
+GROUP BY ID_Employee
+ORDER BY COUNT(*) DESC;
+
+//11.)
+SELECT 
+    COUNT(IF(email LIKE '%@gmail.com', 1, NULL)) 'google',
+    COUNT(IF(email LIKE '%@live.com', 1, NULL)) 'live',		
+    COUNT(IF(email LIKE '%@yahoo.com', 1, NULL)) 'yahoo'	
+FROM employee;
+
+//12.)
+SELECT CONCAT_WS(' ', employee.nama_depan, employee.nama_belakang) AS Nama
+FROM transaction
+INNER JOIN employee ON transaction.ID_Employee=employee.ID_Employee	
+GROUP BY transaction.ID_Employee					
+ORDER BY CONCAT_WS(' ', employee.nama_depan, employee.nama_belakang);
+
+//13.)
+SELECT DATE_FORMAT(transaction_date, "%d %M %Y") AS 'Waktu Transaksi',
+	CASE
+		WHEN MONTH(transaction_date) <= 4 THEN 'Transaksi lama'
+		WHEN MONTH(transaction_date) >= 5 THEN 'Transaksi baru'
+	END AS 'Kategori Waktu Transaksi'
+FROM Transaction
+WHERE MONTH(transaction_date) >= 3 AND MONTH(transaction_date) <=8
+ORDER BY (transaction_date);
+
+//14.)
+SELECT CONCAT(nama_depan, ' ', nama_belakang) AS Nama
+FROM Customer
+ORDER BY LENGTH(Nama) DESC
+LIMIT 1;
+
+//15.)
+SELECT CONCAT(nama_depan, ' ', nama_belakang) AS Nama
+FROM Employee
+ORDER BY LENGTH(TRIM(Nama));
+
+//16.)
+SELECT CONCAT_WS(' ', employee.nama_depan, employee.nama_belakang) AS "Nama Karyawan",
+GROUP_CONCAT(CONCAT_WS(' ', customer.nama_depan, customer.nama_belakang) ORDER BY customer.nama_depan) AS "Nama Customer",
+SUM(paket.harga_paket) AS harga
+FROM transaction
+INNER JOIN employee ON transaction.ID_Employee=employee.ID_Employee			
+INNER JOIN customer ON transaction.ID_Customer=customer.ID_Customer		
+INNER JOIN paket ON transaction.ID_Paket=paket.ID_Paket				
+GROUP BY CONCAT_WS(' ', employee.nama_depan, employee.nama_belakang)
+ORDER BY SUM(paket.harga_paket) DESC
+LIMIT 1;
+
+//17.)
+SELECT LOWER(CONCAT((
+	(REVERSE(LEFT(nama_depan, 3)))
+),
+(
+	CASE
+		WHEN (LENGTH(CONCAT_WS('', nama_depan, nama_belakang))) % 3 = 0 THEN 'pen'
+		WHEN (LENGTH(CONCAT_WS('', nama_depan, nama_belakang))) % 3 = 1 THEN 'apple'
+		ELSE 'pineapple'
+	END
+),
+(
+	CASE
+		WHEN LENGTH(SUBSTRING(alamat, (LOCATE(' ', alamat, 1)+1), ((LOCATE(' ', alamat, 5)) - (LOCATE(' ', alamat, 1)) -1))) % 3 = 0 THEN
+			LEFT(REVERSE(SUBSTRING(alamat, (LOCATE(' ', alamat, 1)+1), (LOCATE(' ', alamat, 5)) - (LOCATE(' ', alamat, 1))-1)),4)
+		WHEN LENGTH(SUBSTRING(alamat, (LOCATE(' ', alamat, 1)+1), ((LOCATE(' ', alamat, 5)) - (LOCATE(' ', alamat, 1)) - 1))) % 3 = 1 THEN
+			SUBSTRING(alamat, (LOCATE(' ', alamat, 1)+1), (LOCATE(' ', alamat, 5)) - (LOCATE(' ', alamat, 1))-1)
+		ELSE REVERSE(SUBSTRING(alamat, (LOCATE(' ', alamat, 1)+1), (LOCATE(' ', alamat, 5)) - (LOCATE(' ', alamat, 1))-1))
+	END
+))) 
+AS Hashing
+FROM customer
+ORDER BY (REVERSE(LEFT(nama_depan, 3))); 
+

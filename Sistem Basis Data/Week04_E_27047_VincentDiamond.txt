@@ -1,0 +1,85 @@
+1A.) 	CREATE DATABASE Pentanix;
+1B.)	CREATE TABLE Job(
+		job_id	CHAR(10)	PRIMARY KEY,
+		job_title VARCHAR(30) NOT NULL,
+		min_salary INTEGER,
+		max_salary INTEGER);
+	CREATE TABLE Location(
+		location_id	CHAR(10) PRIMARY KEY,
+		address		VARCHAR(50) NOT NULL,
+		postal_code	CHAR(5) NOT NULL,
+		city		VARCHAR(15) NOT NULL);
+	CREATE TABLE Department(
+		department_id	CHAR(10) PRIMARY KEY,
+		department_name	VARCHAR(30) NOT NULL,
+		manager_id	CHAR(10) NOT NULL,
+		location_id	CHAR(10),
+		FOREIGN KEY (location_id) REFERENCES Location(location_id));
+	CREATE TABLE Employee(
+		employee_id	CHAR(10) PRIMARY KEY,
+		first_name	VARCHAR(30) NOT NULL,
+		last_name	VARCHAR(30),
+		birth_date	DATE,
+		email		VARCHAR(30) NOT NULL,
+		phone_number	VARCHAR(15) NOT NULL,
+		hire_date	DATE,
+		salary		INTEGER,
+		job_id		CHAR(10),
+		department_id	CHAR(10),
+		FOREIGN KEY (job_id) REFERENCES Job(job_id),
+		FOREIGN KEY (department_id) REFERENCES Department(department_id));
+
+2A.)	SET FOREIGN_KEY_CHECKS=0;
+	INSERT INTO Department
+     	VALUES ('D0001', 'Accounting', 'E0002', 'L0002')
+	('D0002', 'IT', 'E0004', 'L0001'),
+     	('D0003', 'Human Resource', 'E0005', 'L0001'),
+     	('D0004', 'Marketing', 'E0010', 'L0002');
+2B.)	INSERT INTO Employee
+     	VALUES ('E0001', 'Hideyoshi', 'Kinoshita', 1975-08-24, 'Hideyoshi.kino@gmail.com', '081689231099', 2002-01-11, 5000000, 'J0004', 'D0002'),
+	('E0002', 'Sara', '', '1970-01-11', 'Sara@rocketmail.com', '089281849321', '2000-12-10', 5500000, 'J0003', 'D0001'),
+ 	('E0003', 'Kazuyoshi', '', '1968-02-28', 'Kazuyoshi@gmail.com', 085252778438, '1999-07-25', 4500000, 'J0009', 'D0003'),
+     	('E0004', 'Shoichiro', 'Yukimura', '1967-02-01', 'Shoichiro.yuki@yahoo.com', 089928317822, '2000-04-17', 4500000, 'J0005', 'D0002'),
+     	('E0005', 'Chibi', 'Usa', '1950-06-30', 'Chibi.usa@gmail.com', 081329883547, '2001-08-10', 5000000, 'J0008', 'D0003'),
+     	('E0006', 'Yoshika', 'Saehara', '1977-10-21', 'Yoshika.sae@yahoo.com', 081299284628, '2005-11-18', 4500000, 'J0008', 'D0003'),
+	('E0007', 'Kagami', 'Mikage', '1970-10-08', 'Kagami.mikage@rocketmail.com', 089628371298, '2002-05-15', 12500000, 'J0001', ''),
+	('E0008', 'Reiko', 'Shindo', '1948-11-14', 'Reiko.shindo@live.com', 085290802938, '2002-09-01', 3500000, 'J0004', 'D0002'),
+     	('E0009', 'Youko', 'Kuriki', '1970-03-19', 'Youko.kuriki@hotmail.com', 089922781924, '2007-04-08', 5500000, 'J0002', 'D0001'),
+     	('E0010', 'Mana', 'Ichihashi', '1976-11-21', 'Mana.ichihashi@gmail.com', 087888291322, '2003-11-20', 6000000, 'J0006', 'D0004'),
+     	('E0011', 'Kyoko', 'Aoi', '1965-09-30', 'Kyoko.aoi@gmail.com', 081290208851, '2005-05-13', 8000000, 'J0009', 'D0003');
+2C.)	INSERT INTO Job
+     	VALUES ('J0001', 'President', 10000000, 15000000),
+     	('J0002', 'Accountant', 3000000, 4500000),
+    	('J0003', 'Accounting Manager', 5000000, 7000000),
+     	('J0004', 'IT Support', 3500000, 5000000),
+     	('J0005', 'Programmer', 4000000, 5500000),
+     	('J0006', 'Marketing Manager', 6000000, 8000000),
+     	('J0007', 'Marketing Representative', 4500000, 5500000),
+     	('J0008', 'HR Manager', 5000000, 6500000),
+     	('J0009', 'HR Representative', 3500000, 4500000);
+2D.)	INSERT INTO Location
+    	VALUES ('L0001', 'Grand Indonesia Lt.9, Jl. M.H. Thamrin No.1, Jakarta Pusat', 10310, 'Jakarta'),
+     	('L0002', 'Pacific Place Lt.7, Jl. Jenderal Sudirman Kav.52-53, Jakarta Selatan', 12190, 'Jakarta');
+
+3A.)	UPDATE Employee
+    	SET first_name = 'Pedo', last_name = 'Bear', email = 'pedo.bear@gmail.com'
+     	WHERE employee_id = 'E0005';
+3B.)	UPDATE Employee
+     	SET salary = salary - 100000;
+3C.)	UPDATE Employee SET job_id = 'J0003', department_id 'D0001' WHERE employee_id = 'E0004';
+	UPDATE Employee SET job_id = 'J0005', department_id = 'D0002' WHERE first_name = 'Sara';
+3D.) 	DELETE FROM Employee WHERE employee_id = 'E0004';
+3E.) 	INSERT INTO  Employee 
+	VALUES ('E0012', 'Usui', 'Takumi', '1982-04-27', 'Usui.takumi@gmail.com', 085309009211, CURRENT_DATE(), 4500000, 'J0007', 'D0004');
+3F.)	UPDATE Employee
+     	SET salary = salary + 200000
+     	WHERE employee_id = 'E0012';
+3E.) 	UPDATE Employee
+     	SET salary = salary * 1.1
+     	WHERE (datediff(CURRENT_DATE(), birth_date) / 365.2425) >= 50
+     	OR birth_date LIKE '____-11%';
+
+4A.)	DROP TABLE IF EXISTS Employee, Department, Job, Location;
+4B.)	DROP DATABASE Pentanix;
+
+5.) 	Tetap bisa, karena syarat dari FOREIGN KEY adalah menunjuk PRIMARY/UNIQUE KEY di tabel lain.
