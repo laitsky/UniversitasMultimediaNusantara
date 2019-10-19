@@ -1,0 +1,64 @@
+CREATE DATABASE ikea;
+USE ikea;
+SOURCE D:\ikea.sql;
+
+#Tugas Praktikum
+#1
+SELECT
+    CONCAT(firstName, ' ', lastName) as 'Nama Karyawan',
+    salary as 'Gaji'
+FROM employees as e 
+JOIN
+    jobs AS j
+    ON
+        e.JobID = j.JobID
+ORDER BY
+    firstName;
+
+#2
+SELECT
+    s.ShelfID
+FROM shelves as s
+JOIN 
+    products as p 
+    ON
+        s.ShelfID = p.ShelfID
+GROUP BY s.ShelfID 
+ORDER BY 
+    p.Stock DESC
+LIMIT 3;
+
+#3
+SELECT 
+    JobDesc AS Jobs,
+    COUNT(*) AS Jumlah
+FROM 
+    jobs as j
+JOIN 
+    employees as e 
+    ON 
+        j.JobID = e.JobID
+GROUP BY j.jobID;
+
+#4
+SELECT
+    productName as 'Products' 
+FROM 
+    products AS p 
+JOIN
+    producttype AS t 
+    ON
+        p.typeID = t.typeID
+WHERE
+    t.typeName LIKE '%METOD%'
+UNION 
+SELECT
+    CONCAT("Found ", COUNT(*), " results")
+FROM 
+    products AS p 
+JOIN
+    producttype AS t 
+    ON
+        p.typeID = t.typeID
+WHERE
+    t.typeName LIKE '%METOD%';
