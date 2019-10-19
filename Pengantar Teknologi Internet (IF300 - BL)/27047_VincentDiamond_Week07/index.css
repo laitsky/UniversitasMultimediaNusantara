@@ -3,6 +3,7 @@ label {
     margin-top: 1vh;
     margin-bottom: 0.8vh;
 }
+
 button {
     display: flex;
     margin: auto;
@@ -12,9 +13,11 @@ button {
     padding: 1em;
     background-color: transparent;
 }
+
 button:hover {
     transform: scale(1.03);
 }
+
 form {
     padding-top: 15%;
     height: 100%;
@@ -32,4 +35,3 @@ form input {
 footer {
     text-align: center;
 }
-

@@ -11,16 +11,16 @@ function documentReady() {
         width: 350,
         modal: true,
         buttons: {
-            "Add new order": function() {
+            "Add new order": function () {
                 //implement here
             },
-            Cancel: function() {
+            Cancel: function () {
                 dialog.dialog("close");
             }
         }
     });
-    
-    $(".btnAddOrder").on("click", function(btn) {
+
+    $(".btnAddOrder").on("click", function (btn) {
         //and here
         dialog.dialog("open");
     });

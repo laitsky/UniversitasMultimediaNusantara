@@ -1,71 +1,71 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Hotel Room Reservation</title>
-        <link rel="stylesheet" type="text/css" href="jui.css">
-        <link rel="stylesheet" type="text/css" href="catalog.css">
-    </head>
-    <body>
-        <script type="text/javascript"
-            src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script type="text/javascript"
-            src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script type="text/javascript"
-            src="script.js"></script>
 
-        <div class="container col-besar">
-            <table id="tableOrder">
-                <tr>
-                    <th>Name</th>
-                    <th>Ordered Room</th>
-                    <th>Deposit</th>
-                </tr>
-                <tr>
-                    <td>Peter</td>
-                    <td>Griffin</td>
-                    <td>$100</td>
-                </tr>
-                <tr>
-                    <td>Lois</td>
-                    <td>Griffin</td>
-                    <td>$150</td>
-                </tr>
-                <tr>
-                    <td>Joe</td>
-                    <td>Swanson</td>
-                    <td>$300</td>
-                </tr>
-                <tr>
-                    <td>Cleveland</td>
-                    <td>Brown</td>
-                    <td>$250</td>
-                </tr>
-            </table>
+<head>
+    <title>Hotel Room Reservation</title>
+    <link rel="stylesheet" type="text/css" href="jui.css">
+    <link rel="stylesheet" type="text/css" href="catalog.css">
+</head>
+
+<body>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+
+    <div class="container col-besar">
+        <table id="tableOrder">
+            <tr>
+                <th>Name</th>
+                <th>Ordered Room</th>
+                <th>Deposit</th>
+            </tr>
+            <tr>
+                <td>Peter</td>
+                <td>Griffin</td>
+                <td>$100</td>
+            </tr>
+            <tr>
+                <td>Lois</td>
+                <td>Griffin</td>
+                <td>$150</td>
+            </tr>
+            <tr>
+                <td>Joe</td>
+                <td>Swanson</td>
+                <td>$300</td>
+            </tr>
+            <tr>
+                <td>Cleveland</td>
+                <td>Brown</td>
+                <td>$250</td>
+            </tr>
+        </table>
+    </div>
+    <div class="container col-kecil" id="accordion">
+        <h3>Single Room</h3>
+        <div>
+            <p>Mauris mauris ante, blandit et, ultrices a, suspicit eget
+                quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in,
+                condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi.
+                Provin viverra leo ut odio. Curabitus malesuada. Vestibulum a velit eu ante
+                scelerisque vulputate.
+            </p>
+            <button class="button btnAddOrder" room-type="single-room">Order Room</button>
         </div>
-        <div class="container col-kecil" id="accordion">
-            <h3>Single Room</h3>
-            <div>
-                <p>Mauris mauris ante, blandit et, ultrices a, suspicit eget
-                    quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in,
-                    condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. 
-                    Provin viverra leo ut odio. Curabitus malesuada. Vestibulum a velit eu ante
-                    scelerisque vulputate.
-                </p>
-                <button class="button btnAddOrder" room-type="single-room">Order Room</button>
-            </div>
-        </div>
-        <div id="dialog-form" title="Create new order">
-            <p class="validateTips">All form fields are required</p>
-            <form>
-                <label for="name" id="name-label">Name</label>
-                <input type="text" id="name" class="text ui-widget-content ui-corner-all">
-                <label for="price" id="price-label">Price</label>
-                <input type="text" id="price" class="text ui-widget-content ui-corner-all">
-                <label for="deposit" id="deposit-label">Deposit</label>
-                <input type="text" id="deposit" class="text ui-widget-content ui-corner-all">
-                <button>Add new order</button>
-                <button>Cancel</button>
-            </form>
-        </div>
-    </body>
+    </div>
+    <div id="dialog-form" title="Create new order">
+        <p class="validateTips">All form fields are required</p>
+        <form>
+            <label for="name" id="name-label">Name</label>
+            <input type="text" id="name" class="text ui-widget-content ui-corner-all">
+            <label for="price" id="price-label">Price</label>
+            <input type="text" id="price" class="text ui-widget-content ui-corner-all">
+            <label for="deposit" id="deposit-label">Deposit</label>
+            <input type="text" id="deposit" class="text ui-widget-content ui-corner-all">
+            <button>Add new order</button>
+            <button>Cancel</button>
+        </form>
+    </div>
+</body>
+
 </html>

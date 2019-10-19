@@ -1,21 +1,23 @@
 <!DOCTYPE html>
+
 <head>
     <link href="random_undian.css" rel="stylesheet">
     <title>Random Undian</title>
 </head>
+
 <body>
     <div class="row">
         <div id="column-1" class="column">
             <div id="subcol-1-1">
-                <label for="nama-anggota" id="label-nama-anggota">Nama Anggota</label><br/>
-                <input type="text" id="nama-anggota"><br/>
-                <label for="angka-undian" id="label-angka-undian">Random angka undian</label><br/>
+                <label for="nama-anggota" id="label-nama-anggota">Nama Anggota</label><br />
+                <input type="text" id="nama-anggota"><br />
+                <label for="angka-undian" id="label-angka-undian">Random angka undian</label><br />
                 <input type="text" id="angka-undian" disabled>
                 <button type="button" id="randomize-button" onclick="randomizeNumber()">Randomize</button>
             </div>
             <div id="subcol-1-2">
-                <label for="deskripsi-undian" id="label-deskripsi-undian">Deskripsi Undian</label><br/>
-                <textarea id="deskripsi-undian" rows="4" cols="25"></textarea><br/>
+                <label for="deskripsi-undian" id="label-deskripsi-undian">Deskripsi Undian</label><br />
+                <textarea id="deskripsi-undian" rows="4" cols="25"></textarea><br />
                 <button type="submit" onclick="submitInfo()">SUBMIT</button>
             </div>
         </div>

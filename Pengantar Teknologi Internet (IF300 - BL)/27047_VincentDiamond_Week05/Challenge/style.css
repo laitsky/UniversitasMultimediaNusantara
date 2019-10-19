@@ -11,7 +11,8 @@ table {
     width: 70%;
 }
 
-td, th {
+td,
+th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
@@ -23,7 +24,8 @@ tr:nth-child(even) {
 
 /* BUTTON */
 .button-posts {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50;
+    /* Green */
     border: none;
     color: white;
     padding: 10px 12px;
@@ -32,6 +34,7 @@ tr:nth-child(even) {
     display: inline-block;
     font-size: 16px;
 }
+
 .button-comments {
     background-color: #008CBA;
     border: none;
@@ -54,7 +57,8 @@ tr:nth-child(even) {
     box-shadow: 3px 4px 4px grey;
 }
 
-.posts-card-container p, h3 {
+.posts-card-container p,
+h3 {
     margin-left: 1vw;
 }
 

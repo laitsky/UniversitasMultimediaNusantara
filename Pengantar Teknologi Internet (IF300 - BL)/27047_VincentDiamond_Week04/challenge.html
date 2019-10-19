@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>PTI Challenge Week 04</title>
-        <link href="challenge-css.css" rel="stylesheet">
-        <script>
+
+<head>
+    <title>PTI Challenge Week 04</title>
+    <link href="challenge-css.css" rel="stylesheet">
+    <script>
         function incrementLevelIndex() {
             heroLevelIndex++;
             document.getElementById("top-bar-text-2").innerHTML = "Level: " + heroLevelIndex;
-        }   
-        let heroLevelIndex = 1, totalRecruits = 0;
+        }
+        let heroLevelIndex = 1,
+            totalRecruits = 0;
+
         function onDocumentFinish() {
             let heroName = window.prompt("Hero, what is your name?");
             document.getElementById("top-bar-text-1").innerHTML = "Nama: " + heroName;
@@ -16,7 +19,7 @@
             document.getElementById("top-bar-text-3").innerHTML = "Recruits: " + totalRecruits;
             console.log("Hero " + heroName + " is ready for an adventure");
             // function of submitting the form
-            document.getElementById("formSubmit").onsubmit = function(form) {
+            document.getElementById("formSubmit").onsubmit = function (form) {
                 //preventing form to refresh
                 form.preventDefault();
                 let item = {
@@ -24,11 +27,14 @@
                     level: '',
                     heroClass: '',
                     //object method
-                    isItemValid: function() {
-                        if (this.name !== '' && this.level !== '' && this.heroClass !== '') { return true;}
-                        else { return false; }
+                    isItemValid: function () {
+                        if (this.name !== '' && this.level !== '' && this.heroClass !== '') {
+                            return true;
+                        } else {
+                            return false;
+                        }
                     },
-                    addToTable: function() {
+                    addToTable: function () {
                         const tbody = document.getElementById("tableData").querySelector("tbody");
                         const newRow = document.createElement("tr");
                         const nameCol = document.createElement("td");
@@ -42,13 +48,13 @@
                         newRow.appendChild(classCol);
                         tbody.appendChild(newRow);
                     },
-                    fillProperty: function(dataSource) {
+                    fillProperty: function (dataSource) {
                         item.name = dataSource.target['name'].value;
                         item.level = dataSource.target['level'].value;
                         item.heroClass = dataSource.target['heroClass'].value;
                     }
                 }
-                item.fillProperty(form); 
+                item.fillProperty(form);
                 if (item.isItemValid()) {
                     if (item.level <= heroLevelIndex) {
                         totalRecruits += 1;
@@ -56,57 +62,58 @@
                         document.getElementById("formSubmit").reset();
                         item.addToTable();
                         console.log(item.name + " a Lv." + item.level + " " + item.heroClass + " is recruited");
-                    }
-                    else {
+                    } else {
                         console.log("You failed to recruit a Lv. " + item.level + " " + item.heroClass);
                         window.alert("Your level need to be higher than your recruits!");
                     }
                 }
             }
         }
-        </script>
-    </head>
-    <body onload="onDocumentFinish()">
-        <section id="top-bar" class="grey-bar">
-            <ul>
-                <li id="top-bar-text-1"></li>
-                <li id="top-bar-text-2"></li>
-                <li id="top-bar-text-3"></li>
-            </ul>
-            </section>
-            <div id="wrapper-training-button">
-                <button id="training-button" type="button" onclick="incrementLevelIndex()">Training</button>
-            </div>
-        <section id="form-layer">
-            <form id="formSubmit">
-                <label for="Name" id="name-label">Name</label>
-                <input type="text" id="name" placeholder="Enter your name here" class="input-type">
-                <label for="Level" id="level-label">Level</label>
-                <input type="text" id="level" placeholder="Enter your level here" class="input-type">
-                <label for="heroClass" id="heroClass-label">Class</label>
-                <select id="heroClass">
-                    <option value="swordman" selected>Swordman</option>
-                    <option value="paladin">Paladin</option>
-                    <option value="archer">Archer</option>
-                    <option value="thief">Thief</option>
-                    <option value="magician">Magician</option>
-                    <option value="summoner">Summoner</option>
-                    <option value="warlock">Warlock</option>
-                    <option value="bard">Bard</option>
-                </select>
-                <button id="recruit" type="submit">Recruit</button>
-                <table id="tableData">
-                    <thead>
+    </script>
+</head>
+
+<body onload="onDocumentFinish()">
+    <section id="top-bar" class="grey-bar">
+        <ul>
+            <li id="top-bar-text-1"></li>
+            <li id="top-bar-text-2"></li>
+            <li id="top-bar-text-3"></li>
+        </ul>
+    </section>
+    <div id="wrapper-training-button">
+        <button id="training-button" type="button" onclick="incrementLevelIndex()">Training</button>
+    </div>
+    <section id="form-layer">
+        <form id="formSubmit">
+            <label for="Name" id="name-label">Name</label>
+            <input type="text" id="name" placeholder="Enter your name here" class="input-type">
+            <label for="Level" id="level-label">Level</label>
+            <input type="text" id="level" placeholder="Enter your level here" class="input-type">
+            <label for="heroClass" id="heroClass-label">Class</label>
+            <select id="heroClass">
+                <option value="swordman" selected>Swordman</option>
+                <option value="paladin">Paladin</option>
+                <option value="archer">Archer</option>
+                <option value="thief">Thief</option>
+                <option value="magician">Magician</option>
+                <option value="summoner">Summoner</option>
+                <option value="warlock">Warlock</option>
+                <option value="bard">Bard</option>
+            </select>
+            <button id="recruit" type="submit">Recruit</button>
+            <table id="tableData">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Level</th>
                         <th>Class</th>
                     </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </form>   
-        </section>
-        <footer>Created By Vincent Diamond - 00000027047</footer>
-    </body>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </form>
+    </section>
+    <footer>Created By Vincent Diamond - 00000027047</footer>
+</body>
+
 </html>
