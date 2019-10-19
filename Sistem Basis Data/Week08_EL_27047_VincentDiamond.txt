@@ -2,13 +2,13 @@ CREATE DATABASE ikea;
 USE ikea;
 SOURCE D:\ikea.sql;
 
-#Tugas Praktikum
+--Tugas Praktikum
 #1
 SELECT
     CONCAT(firstName, ' ', lastName) as 'Nama Karyawan',
     salary as 'Gaji'
 FROM employees as e 
-JOIN
+INNER JOIN
     jobs AS j
     ON
         e.JobID = j.JobID
@@ -17,16 +17,13 @@ ORDER BY
 
 #2
 SELECT
-    s.ShelfID
-FROM shelves as s
-JOIN 
-    products as p 
-    ON
-        s.ShelfID = p.ShelfID
-GROUP BY s.ShelfID 
-ORDER BY 
-    p.Stock DESC
-LIMIT 3;
+    ShelfID
+FROM 
+    products
+WHERE ShelfID IS NOT NULL
+GROUP BY ShelfID
+ORDER BY COUNT(Stock) DESC
+LIMIT 3; 
 
 #3
 SELECT 
@@ -34,7 +31,7 @@ SELECT
     COUNT(*) AS Jumlah
 FROM 
     jobs as j
-JOIN 
+INNER JOIN 
     employees as e 
     ON 
         j.JobID = e.JobID
@@ -45,7 +42,7 @@ SELECT
     productName as 'Products' 
 FROM 
     products AS p 
-JOIN
+INNER JOIN
     producttype AS t 
     ON
         p.typeID = t.typeID
@@ -56,9 +53,125 @@ SELECT
     CONCAT("Found ", COUNT(*), " results")
 FROM 
     products AS p 
-JOIN
+INNER JOIN
     producttype AS t 
     ON
         p.typeID = t.typeID
 WHERE
     t.typeName LIKE '%METOD%';
+
+#5
+SELECT DISTINCT
+    CONCAT(FirstName, ' ', LastName) AS Name
+FROM 
+    employees AS e 
+INNER JOIN
+    jobs AS j
+    ON 
+        e.JobID = j.JobID
+WHERE
+    JobDesc LIKE '%Manager'
+ORDER BY FirstName
+LIMIT 3;
+
+#6
+SELECT 
+    r.F_OrderID AS OrderID,
+    f.Price AS 'Total Price'
+FROM 
+    restaurant AS r 
+INNER JOIN 
+    forderdetails AS f 
+    ON
+        r.F_OrderID = f.F_OrderID
+WHERE 
+    MONTH(F_OrderDate) = '01'
+UNION 
+SELECT 
+    CONCAT('Total'),
+    CONCAT(SUM(Price))
+FROM 
+    restaurant AS r 
+INNER JOIN 
+    forderdetails AS f 
+    ON
+        r.F_OrderID = f.F_OrderID
+WHERE
+    MONTH(F_OrderDate) = '01';
+
+#7
+SELECT 
+    (CASE
+    WHEN e.LastName IS NULL THEN e.FirstName
+    ELSE CONCAT(e.FirstName, ' ', e.LastName)
+    END) AS Name,
+    j.JobDesc as Job,
+    COUNT(o.EmployeeID) AS Work
+FROM 
+    employees AS e
+JOIN 
+    jobs AS j
+    ON 
+        (e.JobID = j.JobID)
+JOIN 
+    orders AS o
+    ON 
+        (e.EmployeeID = o.EmployeeID)
+GROUP BY 1
+UNION
+SELECT 
+    (CASE
+    WHEN e.LastName IS NULL THEN e.FirstName
+    ELSE CONCAT(e.FirstName, ' ', e.LastName)
+    END) AS Name,
+    j.JobDesc as Job,
+    COUNT(r.EmployeeID) AS Work
+FROM 
+    employees AS e
+JOIN 
+    jobs AS j
+    ON 
+        (e.JobID = j.JobID)
+JOIN 
+    restaurant AS r
+    ON 
+        (e.EmployeeID = r.EmployeeID)
+GROUP BY 1
+ORDER BY 3 DESC;
+
+#8
+SELECT 
+    OrderID AS ID,
+    Price AS 'Total Revenue'
+FROM 
+    orderdetails  
+WHERE  
+    Price >= 500000
+GROUP BY OrderID
+UNION
+SELECT
+    F_OrderID AS ID,
+    Price AS 'Total Revenue'
+FROM 
+    forderdetails
+WHERE 
+    Price >= 500000
+GROUP BY F_OrderID;
+
+#9
+SELECT
+    m.ManagerName as Manager,
+    GROUP_CONCAT(e.FirstName, ' ', e.LastName) as Employee
+FROM 
+    employees AS e
+LEFT JOIN
+    (
+    select EmployeeID, CONCAT(FirstName, ' ', LastName) as ManagerName
+    FROM employees
+    WHERE ManagerID IS NULL
+    ) AS m
+    ON 
+        e.ManagerID = m.EmployeeID
+WHERE 
+    e.ManagerID IS NOT NULL
+GROUP BY e.ManagerID;

@@ -10,7 +10,7 @@ Kelebihan jQuery:
 #2
 
 #3
-Callback function adalah fungsi yang diberikan ke fungsi lain sebagai argumen yang akan kemudian dieksekusi didalam fungsi outer untuk menyelesaikan rutin/aksi.
+Callback function adalah fungsi yang diberikan ke fungsi lain sebagai argumen yang akan kemudian dieksekusi didalam fungsi outer untuk menyelesaikan permintaan.
 
 #4
 .children(): memungkinkan untuk mencari melalui elemen children di DOM tree dan membuat objek jQuery baru dari elemen yang cocok. 
