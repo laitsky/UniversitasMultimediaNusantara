@@ -1,0 +1,31 @@
+#1
+Kelemahan jQuery:
+-Karena jQuery menyembunyikan abstraksi JavaScript, jQuery akan membuat kita akan lebih sulit untuk belajar vanilla JS yang sebenarnya.
+-Membuat response time dan load time sebuah web lebih lambat karena 
+fungsi-fungsi digunakan dari library pihak-ketiga, dimana memungkinkan terjadi untuk adanya perbedaan performa antara penggunaan vanilla JS dan library pihak-ketiga seperti jQuery.
+Kelebihan jQuery:
+-Memungkinkan kita untuk memudahkan pengembangan web yang berbasis JavaScript, karena kode-kode yang ditulis akan lebih ringkas.
+-Mempunyai library yang besar, sehingga untuk menggunakan fungsi-fungsi yang kompleks menggunakan vanilla JS dan DOM dapat ditulis dengan lebih singkat dan tidak membuat kode lebih sukar untuk dibaca.
+
+#2
+
+#3
+Callback function adalah fungsi yang diberikan ke fungsi lain sebagai argumen yang akan kemudian dieksekusi didalam fungsi outer untuk menyelesaikan rutin/aksi.
+
+#4
+.children(): memungkinkan untuk mencari melalui elemen children di DOM tree dan membuat objek jQuery baru dari elemen yang cocok. 
+
+Contoh implementasi .children():
+$(".container").children().css("background-color", red);
+Implementasi diatas akan mengubah semua children dari elemen dengan class="container" menjadi warna background merah.
+
+$('.budi').html(): mentargetkan elemen dengan class="budi" beserta konten HTMLnya (ekuivalen dengan DOM innerHTML)
+$('#wati').val(): mentargetkan/menadpatkan value dari sebuah value dari elemen form (biasanya input, select, textarea) yang memiliki id="wati"
+
+.fadeIn(): melakukan efek fading kedalam dalam sekian waktu (default: 400), dan dapat disertai dengan fungsi
+.fadeOut(): melakukan efek fading keluar dalam sekian waktu.
+
+.promise(): meng-return objek Promise untuk mengamati ketika semua aksi dari sebuah koleksi tipe tertentu yang terikat, sedang dalam queue atau tidak, atau telah selesai
+
+
+
