@@ -8,7 +8,16 @@ Kelebihan jQuery:
 -Mempunyai library yang besar, sehingga untuk menggunakan fungsi-fungsi yang kompleks menggunakan vanilla JS dan DOM dapat ditulis dengan lebih singkat dan tidak membuat kode lebih sukar untuk dibaca.
 
 #2
-
+function XHRPostMethod() {
+    let xhr = new XMLHttpRequest();
+    let url = 'www.budi.com/info-diri';
+    xhr.open('POST', url, true);
+    xhr.send(JSON.stringify({
+        nama: 'Budi',
+        alamat: 'Jl. Merpati',
+        pekerjaan: 'Programmer'
+    }));
+}
 #3
 Callback function adalah fungsi yang diberikan ke fungsi lain sebagai argumen yang akan kemudian dieksekusi didalam fungsi outer untuk menyelesaikan permintaan.
 
