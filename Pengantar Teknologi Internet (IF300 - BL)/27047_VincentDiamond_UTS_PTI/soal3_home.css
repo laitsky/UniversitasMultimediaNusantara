@@ -1,0 +1,26 @@
+body {
+    padding-top: 15%;
+    display: grid;
+    
+}
+#hexNumber {
+    text-align: center;
+    color: white;
+}
+
+button {
+    border-radius: 4px;
+    color: black;
+    background-color: white;
+    padding: 1em;
+    border: 1.2px solid black;
+    margin-bottom: 2vh;
+    margin-left: 35%; margin-right: 35%;
+    font-size: 1em;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+    transition: 0.5s;
+}

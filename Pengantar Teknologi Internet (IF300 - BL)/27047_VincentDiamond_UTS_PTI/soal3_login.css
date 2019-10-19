@@ -1,0 +1,30 @@
+body {
+    padding-left: 30%;
+    margin: 15%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: block;
+}
+
+input {
+    border-radius: 4px;
+    margin-bottom: 2vh;
+    border: 1px solid grey;
+    padding: 1em;
+}
+
+button {
+    border-radius: 4px;
+    padding: 1em;
+    border: 1px solid black;
+    background-color: transparent;
+}
+footer {
+    padding-top: 25vh;
+}
+
+button:hover {
+    border: white;
+    background-color: #1DA1F2;
+    color: white;
+    transition: 0.3s;
+}
