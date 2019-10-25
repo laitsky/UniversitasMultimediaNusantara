@@ -1,0 +1,29 @@
+#1
+Container memudahkan kita untuk menyajikan elemen untuk konten situs yang 
+kita buat. Gunakan .container untuk lebar pixel yang responsive atau juga
+bisa dengan .container-fluid untuk meraih width:100% di semua viewport
+dan ukuran perangkat. 
+
+#2
+Dropdowns -> Menu yang dapat di toggle untuk menampilkan daftar links
+Navbar -> Komponen yang digunakan untuk navigasi suatu situs
+Breadcrumbs -> Menunjukkan lokasi page yang sedang dikunjungi dengan hirakri navigasional
+Pagination -> Menyediakan link pagination untuk pagination dengan halaman jamak
+Badges -> Untuk menyoroti item yang baru / belum dilihat
+Glyphicons -> Memberikan icon-icon 
+Jumbotron -> Komponen fleksibel dan ringan yang dapat digunakan untuk
+             meng-extend viewport untuk menunjukkan konten utama dalam
+             situs
+Alert -> Menyajikan pesan timbal-balik kontekstual untuk action user
+Progress bars -> Memberikan timbal-balik dalam real time untuk mengetahui
+                 proses pekerjaan/workflow
+Responsive embed -> Mengizinkan peramban untuk menentukan ukuran video/slideshow berdasarkan
+                    lebar blok dengna cara membuat rasio intrinsik yang dapat di scale
+                    secara benar di berbagai perangkat
+
+#3
+Transitions -> Untuk memberikan efek transisi yang halus
+Dropdowns -> Memberikan dropdown menun
+ScrollSpy -> Secara otomatis memperbarui target nav berdasarkan posisi scroll 
+Popovers -> Menambahkan overlay konten untuk menampung informasi sekunder
+Carousel -> Komponen slideshow untuk berputar di setiap elemen secara satu per satu
