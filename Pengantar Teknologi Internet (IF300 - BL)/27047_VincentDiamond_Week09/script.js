@@ -4,7 +4,7 @@ $(document).ready(function () {
     $('.btnDetails').on('click', function () {
         let productModal = $('#productModal');
 
-        let productPicture = $(this).closest('div.photo').find('#image').attr('src');
+        let productPicture = $(this).closest('div.col-item').find('#image').attr('src');
         let productName = $(this).closest('div.info').find('#name').text();
         let productPrice = $(this).closest('div.info').find('#price').text();
         let productRating = $(this).closest('div.info').find('#rating').html();
