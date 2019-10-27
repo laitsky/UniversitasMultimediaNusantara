@@ -32,6 +32,7 @@
 
         #top-section {
             padding-top: 1em;
+            padding-bottom: 1em;
         }
 
         .logoPakTirto {
@@ -42,40 +43,71 @@
             border-color: linear-gradient(to left bottom,#c82d8d 0,#f99e4d); */
         }
 
+        #search-logo {
+            color: #039ad9 !important;
+        }
+
         .logoNavbar {
             width: 75px;
             margin-right: 3em;
         }
 
+        #content-section {
+            background-color: #F7F7F7;
+        }
         #video-section {
             background-color: #393939;
             color: white;
-            font-size: 1rem;
             font-weight: 700;
             line-height: 1.5;
             letter-spacing: 3px;
         }
 
-        #video-section h1 {
-            padding: 2.5em;
+        #video-section h1,
+        #content-section h1 {
+            font-size: 1.8em;
+            font-weight: bold;
+            letter-spacing: 5px;
+        }
+
+        #video-section .row {
+            padding: 5em 16em 3em 16em;
+        }
+
+        #content-section>div .row {
+            padding: 5em 8em 1em 14em;
+        }
+
+        #video-section button {
+            font-size: 0.8em;
+            float: right;
+        }
+
+        #content-section button {
+            font-size: 0.8em;
+            float: right;
+            background-color: grey;
         }
 
         #footer-section {
             color: white;
-            background-color: #212529;
+            background-color: #1A1A1A;
             font-size: 1rem;
             font-weight: 700;
             line-height: 1.5;
-            letter-spacing: 3px;
+            letter-spacing: 1px;
+            overflow-x: hidden;
         }
 
         #footer-section li {
             list-style-type: none;
             text-decoration: none;
             display: inline;
+            margin-right: 3em;
         }
 
         #footer-section a {
+            font-weight: normal;
             color: white;
         }
 
@@ -83,8 +115,17 @@
             text-decoration: none;
         }
 
-        .inline-txt-btn {
-            display: inline;
+        #footer-section .row {
+            text-align: center;
+            padding: 3em 5em 1.5em 5em;
+        }
+
+        #footer-section p {
+            font-size: 12px;
+            font-weight: 400;
+            color: #5e5e5e;
+            text-align: center;
+            padding-bottom: 4em;
         }
 
         .tirto-button {
@@ -129,65 +170,162 @@
             </div>
         </nav>
     </div>
-    <div id="content-section" class="container" style="padding-left: 6em; padding-right: 6em;">
+    <div id="content-section" class="container-fluid" style="padding-left: 6em; padding-right: 6em;">
         <!-- Untuk menampilkan isi konten utama -->
         <div id="home">
 
         </div>
         <div id="mild-content-section">
-
+            <div class="row">
+                <div class="col-md-3">
+                    <h1>MILD</h1>
+                </div>
+                <div class="col-md-9">
+                    <button type="button" class="tirto-button">Lihat Semua</button>
+                </div>
+            </div>
         </div>
         <div id="persepsi-terhadap-issue">
-
+            <div class="row">
+                <div class="col-md-3">
+                    <h1>PERSEPSI TERHADAP ISSUE</h1>
+                </div>
+                <div class="col-md-9">
+                    <button type="button" class="tirto-button">Lihat Semua</button>
+                </div>
+            </div>
         </div>
         <div id="current-issue">
-
+            <div class="row">
+                <div class="col-md-3">
+                    <h1>CURRENT ISSUE</h1>
+                </div>
+                <div class="col-md-9">
+                    <button type="button" class="tirto-button">Lihat Semua</button>
+                </div>
+            </div>
         </div>
         <div id="visual-report">
-
+            <div class="row">
+                <div class="col-md-3">
+                    <h1>VISUAL REPORT</h1>
+                </div>
+                <div class="col-md-9">
+                    <button type="button" class="tirto-button">Lihat Semua</button>
+                </div>
+            </div>
         </div>
         <div id="topik">
-
+            <div class="row">
+                <div class="col-md-3">
+                    <h1>TOPIK</h1>
+                </div>
+                <div class="col-md-9">
+                    <button type="button" class="tirto-button">Lihat Semua</button>
+                </div>
+            </div>
         </div>
         <div id="infografik">
-
+            <div class="row">
+                <div class="col-md-3">
+                    <h1>INFOGRAFIK</h1>
+                </div>
+                <div class="col-md-9">
+                    <button type="button" class="tirto-button">Lihat Semua</button>
+                </div>
+            </div>
         </div>
         <div id="indepth">
-
+            <div class="row">
+                <div class="col-md-3">
+                    <h1>INDEPTH</h1>
+                </div>
+                <div class="col-md-9">
+                    <button type="button" class="tirto-button">Lihat Semua</button>
+                </div>
+            </div>
         </div>
         <div id="wawancara">
-
+            <div class="row">
+                <div class="col-md-3">
+                    <h1>WAWANCARA</h1>
+                </div>
+                <div class="col-md-9">
+                    <button type="button" class="tirto-button">Lihat Semua</button>
+                </div>
+            </div>
         </div>
         <div id="populer">
-
+            <div class="row">
+                <div class="col-md-3">
+                    <h1>POPULER</h1>
+                </div>
+                <div class="col-md-9">
+                    <button type="button" class="tirto-button">Lihat Semua</button>
+                </div>
+            </div>
         </div>
         <div id="instagram">
-
+            <div class="row">
+                <div class="col-md-3">
+                    <h1>INSTAGRAM</h1>
+                </div>
+                <div class="col-md-9">
+                    <button type="button" class="tirto-button">Lihat Semua</button>
+                </div>
+            </div>
         </div>
         <div id="kolumnis">
-
+            <div class="row">
+                <div class="col-md-3">
+                    <h1>KOLUMNIS</h1>
+                </div>
+                <div class="col-md-9">
+                    <button type="button" class="tirto-button">Lihat Semua</button>
+                </div>
+            </div>
         </div>
         <div id="esai-foto">
-
+            <div class="row">
+                <div class="col-md-3">
+                    <h1>ESAI FOTO</h1>
+                </div>
+                <div class="col-md-9">
+                    <button type="button" class="tirto-button">Lihat Semua</button>
+                </div>
+            </div>
         </div>
     </div>
     <div id="video-section" class="container-fluid">
         <!-- Untuk menampilkan bagian video -->
-        <div class="inline-txt-btn">
-            <h1>VIDEO</h1>
-            <button type="button" class="tirto-button">Lihat Semua</button>
+        <div class="row">
+            <div class="col-md-3">
+                <h1>VIDEO</h1>
+            </div>
+            <div class="col-md-9">
+                <button type="button" class="tirto-button">Lihat Semua</button>
+            </div>
         </div>
     </div>
     <div id="footer-section" class="container-fluid">
         <!-- Untuk menampilkan bagian footer -->
-        <ul>
-            <li><a href="#">Tentang Kami</a></li>
-            <li><a href="#">Redaksi</a></li>
-            <li><a href="#">Pedoman Media Siber</a></li>
-            <li><a href="#">Kontak Kami</a></li>
-            <li><a href="#">Metodologi Riset</a></li>
-            <li><a href="#">FAQ</a></li>
-        </ul>
+        <div class="row">
+            <div class="col-md-6">
+                <ul>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Redaksi</a></li>
+                    <li><a href="#">Pedoman Media Siber</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <ul>
+                    <li><a href="#">Kontak Kami</a></li>
+                    <li><a href="#">Metodologi Riset</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <p>&#9400; 2019 tirto.id. All rights reserved</p>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
