@@ -1,0 +1,121 @@
+#1
+SELECT
+    CONCAT(firstName, ' ', lastName) AS Name,
+    DeptName AS Department
+FROM 
+    employees AS e 
+INNER JOIN 
+    depts AS d 
+    ON e.DeptID = d.DeptID 
+ORDER BY DeptName, Name;
+
+#2
+SELECT
+    CONCAT(e.firstName, ' ', e.lastName) AS 'Employee Name',
+    CONCAT(m.firstName, ' ', m.lastName) AS 'Manager Name'
+FROM 
+    employees AS e 
+INNER JOIN 
+    employees AS m 
+    ON e.ManagerID = m.EmployeeID
+ORDER BY 2, 1;
+
+#3 
+SELECT
+    CONCAT(firstName, ' ', lastName) AS Name,
+    GROUP_CONCAT(OrderID separator '-') as Orders 
+FROM 
+    employees AS e 
+INNER JOIN 
+    orders AS o 
+    ON e.EmployeeID = o.EmployeeID 
+GROUP BY firstName;
+
+#4
+SELECT 
+    ProductName AS 'Product name',
+    SUM(qty) AS 'Total Sold'
+FROM 
+    products AS p 
+INNER JOIN 
+    orderdetails AS od 
+    ON p.articleID = od.articleID 
+GROUP BY 'Product name'
+ORDER BY 'Total Sold' DESC;
+
+#5
+SELECT 
+    ProductName AS 'Product name',
+    CASE
+        WHEN SUM(qty) IS NULL THEN 0 
+        ELSE SUM(qty)
+    END AS 'Total Sold'
+FROM 
+    products AS p 
+INNER JOIN 
+    orderdetails AS od 
+    ON p.articleID = od.articleID 
+GROUP BY 'Product name'
+ORDER BY 'Total Sold' DESC;
+
+#6
+SELECT
+	od.OrderID AS 'Order ID',
+	SUM(od.Price) AS 'Total',
+	CONCAT(e.FirstName, ' ', e.LastName) AS 'In Charge'
+FROM orders o
+JOIN orderdetails od ON o.OrderID = od.OrderID
+JOIN employees e ON o.EmployeeID = e.EmployeeID
+GROUP BY `Order ID`
+ORDER BY `In Charge`,`Order ID`;
+
+#7
+SELECT
+	CONCAT(e.FirstName, ' ', e.LastName) AS 'Employee',
+	TRUNCATE(SUM(od.Price)*0.12,0) AS 'Contribution',
+	TRUNCATE(0.05 * j.Salary, 0) AS 'Bonus'
+FROM employees e
+JOIN orders o ON e.EmployeeID = o.EmployeeID
+JOIN orderdetails od ON o.OrderID = od.OrderID
+JOIN jobs j ON e.JobID = j.JobID
+GROUP BY `Employee`
+HAVING Contribution > 500000
+ORDER BY `Contribution` DESC;
+
+#8
+SELECT 
+	CONCAT(RPAD(CONCAT(e.FirstName, ' ', e.LastName),30,' '), ' ', RPAD(CONCAT(
+	CASE
+		WHEN e.JobID = 'J0005' THEN 'works in a '
+		WHEN j.JobDesc LIKE ('A%') THEN 'works as an '
+		WHEN j.JobDesc LIKE ('I%') THEN 'works as an '
+		WHEN j.JobDesc LIKE ('U%') THEN 'works as an '
+		WHEN j.JobDesc LIKE ('E%') THEN 'works as an '
+		WHEN j.JobDesc LIKE ('O%') THEN 'works as an '
+		ELSE 'works as a '
+	END,
+	j.JobDesc), 50,' '), ' in ', d.DeptName, ' Department') AS 'Employee Information'
+FROM employees e
+JOIN jobs j ON e.JobID = j.JobID
+JOIN depts d ON e.DeptID = d.DeptID
+ORDER BY j.JobDesc, d.DeptName, e.FirstName;
+
+#9
+SET @@AUTOCOMMIT = 0;
+
+#10
+UPDATE jobs 
+SET Salary = 0;
+
+#11
+SAVEPOINT ikea_gaji_nol;
+
+#12
+UPDATE employees
+SET FirstName = 'Tommy';
+
+#13
+ROLLBACK TO ikea_gaji_nol;
+
+#14
+ROLLBACK;
