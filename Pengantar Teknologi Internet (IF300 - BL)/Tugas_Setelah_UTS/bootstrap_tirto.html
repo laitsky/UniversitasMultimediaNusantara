@@ -13,17 +13,23 @@
     <title>Tirto.ID - Jernih Mengalirkan Mencerahkan (dengan Bootstrap)</title>
     <style>
         @import url('https://fonts.googleapis.com/css?family=PT+Sans&display=swap');
+
         body {
             font-family: 'PT Sans', sans-serif;
         }
-        .navbar-text
-         {
-            color: #039ad9!important;
+
+        .navbar-text {
+            color: #039ad9 !important;
             font-size: 1rem;
-            font-weight: 1000;
+            font-weight: 700;
             line-height: 1.5;
             letter-spacing: 3px;
         }
+
+        .navbar-text:hover {
+            border-bottom: 1px solid #039ad9 !important;
+        }
+
         #top-section {
             padding-top: 1em;
         }
@@ -39,6 +45,55 @@
         .logoNavbar {
             width: 75px;
             margin-right: 3em;
+        }
+
+        #video-section {
+            background-color: #393939;
+            color: white;
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.5;
+            letter-spacing: 3px;
+        }
+
+        #video-section h1 {
+            padding: 2.5em;
+        }
+
+        #footer-section {
+            color: white;
+            background-color: #212529;
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.5;
+            letter-spacing: 3px;
+        }
+
+        #footer-section li {
+            list-style-type: none;
+            text-decoration: none;
+            display: inline;
+        }
+
+        #footer-section a {
+            color: white;
+        }
+
+        #footer-section a:hover {
+            text-decoration: none;
+        }
+
+        .inline-txt-btn {
+            display: inline;
+        }
+
+        .tirto-button {
+            border-radius: 500px;
+            background-color: transparent;
+            color: white;
+            padding: 0.5em 1.5em 0.5em 1.5em;
+            font-size: 0.75em;
+            border: 0.75px solid;
         }
 
         @media (max-width: 720px) {
@@ -65,7 +120,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link active navbar-text" href="#"">JELAJAH<span class=" sr-only">(current)</span></a>
+                    <a class="nav-item nav-link navbar-text" href="#"
+                        style="border-bottom: 2px solid #039ad9;">JELAJAH</a>
                     <a class="nav-item nav-link navbar-text" href="#" 0>INDEPTH</a>
                     <a class="nav-item nav-link navbar-text" href="#">MILD REPORT</a>
                     <a class="nav-item nav-link navbar-text" href="#">CURRENT ISSUE</a>
@@ -115,11 +171,23 @@
 
         </div>
     </div>
-    <div id="video-section" class="container">
+    <div id="video-section" class="container-fluid">
         <!-- Untuk menampilkan bagian video -->
+        <div class="inline-txt-btn">
+            <h1>VIDEO</h1>
+            <button type="button" class="tirto-button">Lihat Semua</button>
+        </div>
     </div>
-    <div id="footer-section" class="container">
+    <div id="footer-section" class="container-fluid">
         <!-- Untuk menampilkan bagian footer -->
+        <ul>
+            <li><a href="#">Tentang Kami</a></li>
+            <li><a href="#">Redaksi</a></li>
+            <li><a href="#">Pedoman Media Siber</a></li>
+            <li><a href="#">Kontak Kami</a></li>
+            <li><a href="#">Metodologi Riset</a></li>
+            <li><a href="#">FAQ</a></li>
+        </ul>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
