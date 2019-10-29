@@ -166,14 +166,43 @@
             border: 0.75px solid;
         }
 
-        @media (max-width: 720px) {
+        .media {
+            background-color: white;
+            padding: 1.5em;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+
+        @media screen and (max-width: 480px) {
             .logoPakTirto {
                 display: none;
+            }
+
+            #visual-report-konten img {
+                height: auto;
+                width: 100%;
             }
 
             .logoNavbar {
                 margin-left: -5em;
             }
+
+            body img {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 1366px) {
+            #content-section>div .row {
+                padding: 1em 6em 1em 6em;
+            }
+
+            #visual-report-konten img {
+                height: auto;
+                width: 34vw;
+            }
+
         }
     </style>
 </head>
@@ -361,6 +390,30 @@
             </div>
             <div id="kolumnis-konten">
                 <!--Tulis dibawah-->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="media">
+                            <img src="images/barita-lumbanbatu.jpg" class="mr-3" alt="Ilustrasi Barita Lumanbatu">
+                            <div class="media-body">
+                                <h5 class="mt-0">Kriminalisasi Penderita Gangguan Jiwa atas Nama Penodaan Agama</h5>
+                                <h6>Suzethe Margaret akan diadili dengan pasal penodaan agama. Ia tak bisa bersaksi di
+                                    pengadilan karena...</h6>
+                                <h6>Barita N Lumanbatu</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="media">
+                            <img src="images/usman-hamid.jpg" class="mr-3" alt="Ilustrasi Usman Hamid">
+                            <div class="media-body">
+                                <h5 class="mt-0">Tuduhan Mahasiswa Ditunggangi adalah Kekalahan Moral Pemerintah</h5>
+                                <h6>Mahasiswa turun ke jalan karena aspirasi mereka dianggap angin lalu. Reaksi
+                                    pemerintah yang kalah moral...</h6>
+                                <h6>Usman Hamid</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="esai-foto">
