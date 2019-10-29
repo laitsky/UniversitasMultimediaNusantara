@@ -94,6 +94,16 @@
             border-radius: 10px;
         }
 
+        .cover-image {
+            transition: 1.0s;
+            filter: brightness(50%);
+        }
+
+        .cover-image:hover {
+            transition: 1.0s;
+            filter: brightness(100%);
+        }
+
         #video-section button {
             font-size: 0.8em;
             float: right;
@@ -114,6 +124,10 @@
             font-size: 0.8em;
             float: right;
             background-color: grey;
+        }
+
+        #content-section button:hover {
+            background-color: darkgray;
         }
 
         #footer-section {
@@ -164,12 +178,25 @@
             border: 0.75px solid;
         }
 
+        a .media {
+            color: grey;
+        }
+
         .media {
             background-color: white;
             padding: 1.5em;
             border-radius: 10px;
             box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
             transition: 0.3s;
+        }
+
+        .media h5,
+        .media h6 {
+            font-weight: bold;
+        }
+
+        .media p {
+            line-height: 125%;
         }
 
         @media screen and (max-width: 480px) {
@@ -256,9 +283,10 @@
                 <div class="navbar-nav">
                     <a class="nav-item nav-link navbar-text" href="#"
                         style="border-bottom: 2px solid #039ad9;">JELAJAH</a>
-                    <a class="nav-item nav-link navbar-text" href="#" 0>INDEPTH</a>
-                    <a class="nav-item nav-link navbar-text" href="#">MILD REPORT</a>
-                    <a class="nav-item nav-link navbar-text" href="#">CURRENT ISSUE</a>
+                    <a class="nav-item nav-link navbar-text" href="https://tirto.id/indepth">INDEPTH</a>
+                    <a class="nav-item nav-link navbar-text" href="https://tirto.id/mildreport">MILD REPORT</a>
+                    <a class="nav-item nav-link navbar-text" href="https://tirto.id/q/current-issue-hPZ">CURRENT
+                        ISSUE</a>
                 </div>
             </div>
         </nav>
@@ -432,9 +460,9 @@
                                 <img src="images/barita-lumbanbatu.jpg" class="mr-3" alt="Ilustrasi Barita Lumanbatu">
                                 <div class="media-body">
                                     <h5 class="mt-0">Kriminalisasi Penderita Gangguan Jiwa atas Nama Penodaan Agama</h5>
-                                    <h6>Suzethe Margaret akan diadili dengan pasal penodaan agama. Ia tak bisa bersaksi
+                                    <p>Suzethe Margaret akan diadili dengan pasal penodaan agama. Ia tak bisa bersaksi
                                         di
-                                        pengadilan karena...</h6>
+                                        pengadilan karena...</p>
                                     <h6>Barita N Lumanbatu</h6>
                                 </div>
                             </div>
@@ -447,8 +475,8 @@
                                 <div class="media-body">
                                     <h5 class="mt-0">Tuduhan Mahasiswa Ditunggangi adalah Kekalahan Moral Pemerintah
                                     </h5>
-                                    <h6>Mahasiswa turun ke jalan karena aspirasi mereka dianggap angin lalu. Reaksi
-                                        pemerintah yang kalah moral...</h6>
+                                    <p>Mahasiswa turun ke jalan karena aspirasi mereka dianggap angin lalu. Reaksi
+                                        pemerintah yang kalah moral...</p>
                                     <h6>Usman Hamid</h6>
                                 </div>
                             </div>
@@ -457,20 +485,19 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div id="esai-foto">
-        <div class="row">
-            <div class="col-md-9">
-                <h1>ESAI FOTO</h1>
+        <div id="esai-foto">
+            <div class="row">
+                <div class="col-md-9">
+                    <h1>ESAI FOTO</h1>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="tirto-button">Lihat Semua</button>
+                </div>
             </div>
-            <div class="col-md-3">
-                <button type="button" class="tirto-button">Lihat Semua</button>
+            <div id="esai-foto-konten">
+                <!--Tulis dibawah-->
             </div>
         </div>
-        <div id="esai-foto-konten">
-            <!--Tulis dibawah-->
-        </div>
-    </div>
     </div>
     <div id="video-section" class="container-fluid">
         <!-- Untuk menampilkan bagian video -->
