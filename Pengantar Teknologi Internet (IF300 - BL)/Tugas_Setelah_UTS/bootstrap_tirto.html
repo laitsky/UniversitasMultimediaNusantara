@@ -80,9 +80,7 @@
         }
 
         iframe {
-            border: none;
-            border-radius: 10px;
-            padding-bottom: 1.5em;
+            padding: 0 12.5% 2% 12.5%;
         }
 
         #content-section>div .row {
@@ -175,6 +173,11 @@
         }
 
         @media screen and (max-width: 480px) {
+            #top-section {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+
             .logoPakTirto {
                 display: none;
             }
@@ -188,20 +191,52 @@
                 margin-left: -5em;
             }
 
-            body img {
+            #video-section .row {
+                padding: 2em 0 2em 0;
+            }
+
+            iframe {
+                padding: 0 5% 0% 5%;
+            }
+
+            .media {
+                background-color: white;
+                padding: 0;
+                border-radius: 10px;
+                box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                transition: 0.3s;
+            }
+
+            #footer-section .row {
+                text-align: center;
+                padding: 0;
+            }
+
+            #visual-report-konten img {
+                height: auto;
                 width: 100%;
             }
         }
 
         @media screen and (max-width: 1366px) {
+            #top-section {
+                padding-top: 0.5em;
+                padding-bottom: 0.5em;
+            }
+
             #content-section>div .row {
                 padding: 1em 6em 1em 6em;
             }
 
             #visual-report-konten img {
                 height: auto;
-                width: 34vw;
+                width: 100%;
             }
+
+            #footer-section .row {
+                padding: 1.25em;
+            }
+
 
         }
     </style>
@@ -392,43 +427,50 @@
                 <!--Tulis dibawah-->
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="media">
-                            <img src="images/barita-lumbanbatu.jpg" class="mr-3" alt="Ilustrasi Barita Lumanbatu">
-                            <div class="media-body">
-                                <h5 class="mt-0">Kriminalisasi Penderita Gangguan Jiwa atas Nama Penodaan Agama</h5>
-                                <h6>Suzethe Margaret akan diadili dengan pasal penodaan agama. Ia tak bisa bersaksi di
-                                    pengadilan karena...</h6>
-                                <h6>Barita N Lumanbatu</h6>
+                        <a href="https://tirto.id/kriminalisasi-penderita-gangguan-jiwa-atas-nama-penodaan-agama-ejnG">
+                            <div class="media">
+                                <img src="images/barita-lumbanbatu.jpg" class="mr-3" alt="Ilustrasi Barita Lumanbatu">
+                                <div class="media-body">
+                                    <h5 class="mt-0">Kriminalisasi Penderita Gangguan Jiwa atas Nama Penodaan Agama</h5>
+                                    <h6>Suzethe Margaret akan diadili dengan pasal penodaan agama. Ia tak bisa bersaksi
+                                        di
+                                        pengadilan karena...</h6>
+                                    <h6>Barita N Lumanbatu</h6>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-md-6">
-                        <div class="media">
-                            <img src="images/usman-hamid.jpg" class="mr-3" alt="Ilustrasi Usman Hamid">
-                            <div class="media-body">
-                                <h5 class="mt-0">Tuduhan Mahasiswa Ditunggangi adalah Kekalahan Moral Pemerintah</h5>
-                                <h6>Mahasiswa turun ke jalan karena aspirasi mereka dianggap angin lalu. Reaksi
-                                    pemerintah yang kalah moral...</h6>
-                                <h6>Usman Hamid</h6>
+                        <a href="https://tirto.id/tuduhan-mahasiswa-ditunggangi-adalah-kekalahan-moral-pemerintah-eiYw">
+                            <div class="media">
+                                <img src="images/usman-hamid.jpg" class="mr-3" alt="Ilustrasi Usman Hamid">
+                                <div class="media-body">
+                                    <h5 class="mt-0">Tuduhan Mahasiswa Ditunggangi adalah Kekalahan Moral Pemerintah
+                                    </h5>
+                                    <h6>Mahasiswa turun ke jalan karena aspirasi mereka dianggap angin lalu. Reaksi
+                                        pemerintah yang kalah moral...</h6>
+                                    <h6>Usman Hamid</h6>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="esai-foto">
-            <div class="row">
-                <div class="col-md-9">
-                    <h1>ESAI FOTO</h1>
-                </div>
-                <div class="col-md-3">
-                    <button type="button" class="tirto-button">Lihat Semua</button>
-                </div>
+    </div>
+    <div id="esai-foto">
+        <div class="row">
+            <div class="col-md-9">
+                <h1>ESAI FOTO</h1>
             </div>
-            <div id="esai-foto-konten">
-                <!--Tulis dibawah-->
+            <div class="col-md-3">
+                <button type="button" class="tirto-button">Lihat Semua</button>
             </div>
         </div>
+        <div id="esai-foto-konten">
+            <!--Tulis dibawah-->
+        </div>
+    </div>
     </div>
     <div id="video-section" class="container-fluid">
         <!-- Untuk menampilkan bagian video -->
@@ -444,10 +486,12 @@
             <div id="video-carousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <iframe width="895" height="504" src="https://www.youtube.com/embed/1Cyrchsz4FQ"
-                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
+                        <div class="embed-responsive embed-responsive-21by9">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/1Cyrchsz4FQ"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
                         <div>
                             <h5>Kerusuhan Wamena Papua, 23 September 2019</h3>
                                 <p>Protes terhadap tudingan rasisme di Wamena berujung kerusuhan mematikan. Ratusan ruko
@@ -455,18 +499,22 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <iframe width="895" height="504" src="https://www.youtube.com/embed/10W6mrgT0_I"
-                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
+                        <div class="embed-responsive embed-responsive-21by9">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/10W6mrgT0_I"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
                         <div>
                             <h5>Polemik Sawit di Balik Menghilangnya Pepsi</h3>
                                 <p>Minuman ringan merek Pepsi sebagian hilang dari peredaran.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <iframe width="895" height="504" src="https://www.youtube.com/embed/s8CrAa3e1cU"
-                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
+                        <div class="embed-responsive embed-responsive-21by9">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/s8CrAa3e1cU"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
                         <div>
                             <h5>Apalah Arti Sebuah Nama? Banyak! Tirtografi</h3>
                                 <p>Sebuah merek bukan sekadar perkara nama. Ia adalah identitas dan mengandung beragam
@@ -474,9 +522,11 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <iframe width="895" height="504" src="https://www.youtube.com/embed/eZRyeXLN0mI"
-                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
+                        <div class="embed-responsive embed-responsive-21by9">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/eZRyeXLN0mI"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
                         <div>
                             <h5>Revolusi KAI - Tirtografi</h3>
                                 <p>Kereta Api punya sejarah panjang seiring dengan perjalanan negeri ini. Mulai hadir
@@ -484,9 +534,11 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <iframe width="895" height="504" src="https://www.youtube.com/embed/rHBmL91tbks"
-                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
+                        <div class="embed-responsive embed-responsive-21by9">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/rHBmL91tbks"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
                         <div>
                             <h5>#GejayanMemanggil Part IV</h3>
                                 <p>Aksi demo #GejayanMemanggil di Yogyakarta</p>
