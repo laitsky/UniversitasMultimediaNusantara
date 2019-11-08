@@ -4,7 +4,7 @@
     </div>
     <form class="w3-container w3-border">
         <p>
-            <input [(ngModel)]="newTodo" name="newTodo" placeholder="Todo..." class="w3-input" type="text">
+            <input [(ngModel)]="newToDo" name="newToDo" placeholder="Todo..." class="w3-input" type="text">
         </p>
         <p>
             <button (click)="addTodo()" class="w3-btn w3-blue w3-large">
@@ -20,10 +20,11 @@
             <i>Nothing to do?</i>
         </div>
         <div *ngFor="let todo of todoList">
-            <p [ngClass]="todo.done > 'done':''" style="width: 95%; float: left;" (click)="changeStatus(todo)">
+            <p [ngClass]="todo.done ? 'done':''" style="width: 95%; float: left;" (click)="changeStatus(todo)">
             {{todo.name}}
             </p>
             <p style="width: 5%; float: left;" (click)="delete(todo)">x</p>
         </div>
     </div>
 </div>
+

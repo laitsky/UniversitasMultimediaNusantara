@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todos } from '../todos';
+
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
@@ -10,8 +11,7 @@ export class TodosComponent implements OnInit {
   todoList: Array<Todos> = [];
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
   addTodo = function() {
     if(this.newToDo == '') {
       alert("Todo must not be empty!");
