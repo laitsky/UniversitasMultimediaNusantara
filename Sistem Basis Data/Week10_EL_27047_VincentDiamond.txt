@@ -1,0 +1,120 @@
+create database ikea;
+use ikea;
+source D:\ikea.sql;
+
+CREATE VIEW service_and_total AS
+	SELECT
+		o.OrderID AS 'Order ID',
+		DATE_FORMAT(o.OrderDate, "%d %M %y") AS 'Date',
+		s.ServiceDesc AS 'Service Type',
+		s.Price AS 'Service',
+		SUM(od.Qty*od.Price+s.Price) AS 'Total'
+	FROM orders o 
+	JOIN servicedetails sd ON o.OrderID = sd.OrderID
+	JOIN services s ON sd.ServiceID = s.ServiceID
+	JOIN orderdetails od ON o.OrderID = od.OrderID
+	GROUP BY o.OrderID;
+	
+CREATE VIEW sales_by_year_month AS
+	SELECT
+		DATE_FORMAT(o.OrderDate, "%Y") AS 'Year',
+		DATE_FORMAT(o.OrderDate, "%M") AS 'Month',
+		COUNT(od.OrderID) AS 'Jumlah Transaksi',
+		CONCAT("Rp. ",SUM(od.Qty * od.Price), ",-") AS 'Sales'
+	FROM orders o
+	JOIN orderdetails od ON o.OrderID = od.OrderID
+	GROUP BY `Month`
+	ORDER BY o.OrderDate;
+	
+CREATE VIEW employees_salary AS
+	SELECT 
+		e.EmployeeID AS 'ID',
+		CONCAT(e.FirstName,' ', e.LastName) as 'Nama Lengkap',
+		j.JobDesc AS 'Pekerjaan',
+		j.Salary AS 'Pendapatan Karyawan'
+	FROM employees e
+	JOIN jobs j ON e.JobID = j.JobID
+	ORDER BY e.FirstName;
+
+CREATE VIEW food_sales AS
+	SELECT
+		r.F_OrderID AS 'ID',
+		DATE_FORMAT(r.F_OrderDate, "%d %M %y") AS 'Date',
+		CONCAT(e.FirstName,' ', e.LastName) as 'Employee Name',
+		p.ProductName AS 'Order Food',
+		f.Price AS 'Price',
+		f.Qty AS 'Quantity',
+		(f.Price * f.Qty) AS 'Total'
+	FROM restaurant r
+	JOIN forderdetails f ON r.F_OrderID = f.F_OrderID
+	JOIN employees e ON r.EmployeeID = e.EmployeeID
+	JOIN products p ON f.ArticleID = p.ArticleID;
+	
+CREATE USER 'Aldwin'@'localhost'
+IDENTIFIED BY 'aldsetiawan';
+
+CREATE USER 'Hansen'@'localhost'
+IDENTIFIED BY 'hnsedrick';
+
+CREATE USER 'Reza'@'localhost'
+IDENTIFIED BY 'rzasatyawijaya';
+
+CREATE USER 'Sintya'@'localhost'
+IDENTIFIED BY 'styoktaviani';
+
+GRANT SELECT
+ON sales_by_year_month
+TO 'Aldwin'@'localhost';
+
+GRANT SELECT
+ON food_sales
+TO 'Aldwin'@'localhost';
+
+GRANT SELECT
+ON employees_salary
+TO 'Hansen'@'localhost';
+
+GRANT SELECT
+ON service_and_total
+TO 'Reza'@'localhost';
+
+GRANT SELECT 
+ON food_sales
+TO 'Sintya'@'localhost'
+WITH GRANT OPTION;
+
+SELECT 
+	Year, 
+	SUM(`Jumlah Transaksi`) AS 'Total Transaksi', 
+	CONCAT("Rp. ",SUM(SUBSTRING(SUBSTRING_INDEX(Sales, ',',  1),4)),",-") AS 'Pendapatan Bruto' 
+FROM sales_by_year_month;
+
+SELECT 
+	`Order Food` AS Food, 
+	CONCAT("Rp. ",SUM(Total),",-") AS 'Sales' 
+FROM food_sales 
+GROUP BY `Food` 
+ORDER BY `Sales` DESC;
+
+SELECT 
+	`Nama Lengkap` AS 'Employee Name', 
+	Pekerjaan AS Job, 
+	`Pendapatan Karyawan` AS Salary 
+FROM employees_salary 
+ORDER BY `Salary` DESC 
+LIMIT 4;
+
+SELECT 
+	CONCAT("Rp. ",SUM(Service), ",-") AS 'Total Pendapatan dari Delivery Service' 
+FROM service_and_total 
+WHERE `Service Type` LIKE '%Delivery%';
+
+DROP USER 'Aldwin'@'localhost';
+DROP USER 'Hansen'@'localhost';
+DROP USER 'Reza'@'localhost';
+DROP USER 'Sintya'@'localhost';
+
+DROP VIEW service_and_total;
+DROP VIEW sales_by_year_month;
+DROP VIEW employees_salary;
+DROP VIEW food_sales;

@@ -28,3 +28,4 @@ FROM ORDERS O
 INNER JOIN orderdetails od on o.orderid = od.orderid
 GROUP BY date_format(o.orderdate, '%M')
 ORDER BY o.orderdate;
+
