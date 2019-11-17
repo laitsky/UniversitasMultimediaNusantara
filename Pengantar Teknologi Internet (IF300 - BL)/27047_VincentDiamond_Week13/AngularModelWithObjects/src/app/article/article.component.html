@@ -1,0 +1,13 @@
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <!-- {{}} digunakan untuk binding data pada angular kali ini binding kita lakukan-->
+        <!-- Untuk mengeluarkan data dari model yang telah dibangun -->
+        <h5 class="card-title">{{article.votes}} Points</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{article.domain()}}</h6>
+        <p class="card-text">{{article.title}}</p>
+        <!-- href (click) salah satu metode pada angular7-->
+        <!-- agar kita bisa melakukan click pada tag-->
+        <a href="#" class="card-link" (click)="voteUp()">UpVote</a>
+        <a href="#" class="card-link" (click)="voteDown()">DownVote</a>
+    </div>
+</div>
