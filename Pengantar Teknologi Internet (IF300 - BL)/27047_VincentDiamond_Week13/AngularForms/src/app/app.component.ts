@@ -18,8 +18,8 @@ export class AppComponent {
   ngOnInit(): void {
     this.dataForm = this.formBuilder.group({
       fname: ['', Validators.required],
-      lame: ['', Validators.required],
-      nimm: ['', Validators.required],
+      lname: ['', Validators.required],
+      nim: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
       cpassword: ['', [Validators.required]]
@@ -49,6 +49,9 @@ export class AppComponent {
     } else {
       alert('Data has been set');
       localStorage.setItem('fname', this.f.fname.value);
+      localStorage.setItem('lname', this.f.lname.value);
+      localStorage.setItem('nim', this.f.nim.value);
+      localStorage.setItem('email', this.f.email.value);
     }
   }
 }
