@@ -1,0 +1,92 @@
+create database ikea;
+use ikea;
+source D:/ikea.sql
+
+#1
+DELIMITER //
+create procedure discount ( in persen int )
+    begin
+        select productname as 'Product Name', 
+        concat("Rp. ", truncate(price-(price*persen/100),0)) as 'Harga Setelah Diskon' 
+        from products 
+        order by price asc 
+        limit 10;
+    end //
+
+
+#2
+create procedure counting (in typing varchar(100) )
+    begin
+        declare wcount, idx, maxIdx INT DEFAULT 0;
+        declare currChar, prevChar BOOL DEFAULT 0;
+        set maxIdx=char_length(typing);
+        while idx < maxIdx DO
+        set currChar=SUBSTRING(typing, idx, 1) RLIKE '[[:alpha:]]';
+        if not prevChar and currChar then
+        set wcount=wcount + 1;
+        end if;
+        set prevChar=currChar;
+        set idx=idx+1;
+        end while;
+        select wcount "Total Kata";
+    end//
+
+
+#3
+
+create procedure primecheck ( in numbah int )
+    begin 
+        declare count , i int;
+        declare words varchar(15);
+        set count = 2;
+        set i = 1;
+        while  (numbah > count) do
+        if (numbah % count = 0) 
+        then
+        set i = i + 1;
+        end if;
+        set count = count + 1;
+        end while;
+        if (i = 1)
+        then
+        set words = 'prima';
+        end if; 
+        if (i > 1)
+        then
+        set words = 'bukan prima';
+        end if;
+        select words 'jawaban';
+    end //
+
+
+#4
+
+create procedure box(in x int, in y int)
+    begin
+        declare baris, kolom int;
+        declare temp varchar(255);
+        set baris = 1;
+        set temp = '';
+        CREATE TEMPORARY TABLE tempTable(hasil varchar(255));
+        while (baris < x * y) DO
+        set kolom = 1;
+        while (kolom <= x * y + 1) do
+        if (baris = 1 or baris % y  = 0 or baris = x * y - 1) then
+        if ((kolom - 1) % y = 0) then set temp = CONCAT(temp, "+");
+        else set temp = CONCAT(temp,'-');
+        end if;
+        else
+        if ((kolom - 1) % y = 0) then set temp = CONCAT(temp,'|');
+        else set temp = concat(temp,' ');
+        end if;
+        end if;
+        set kolom = kolom + 1;
+        end while;
+        insert into tempTable(hasil) values (temp);
+        set baris = baris + 1, temp = '';
+        end while;
+        select hasil as "Box" from tempTable;
+        drop TEMPORARY TABLE tempTable;
+    end //
+DELIMITER ;
+
