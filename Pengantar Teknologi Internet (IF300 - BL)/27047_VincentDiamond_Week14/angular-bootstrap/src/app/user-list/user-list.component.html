@@ -3,18 +3,22 @@
     <table class="table table-hover table-striped">
         <thead>
             <tr>
-                <th scope="col">#</th>
+                <th scope="col">#Id</th> 
                 <th scope="col">NIM</th>
                 <th scope="col">NAMA</th>
-                <th scope="col">ALAMAT</th>
+                <th scope="col">EMAIL</th>
+                <th scope="col">TELEPON</th>
+                <th scope="col">JOIN_DATE</th>
             </tr>
         </thead>
-        <tbody>
-            <tr *ngFor="let user of users; let i = index" routerLink="./{{ user.nim }}">
-            <th scope="row">{{ i }}</th>
-            <td>{{ user.nim }}</td>
-            <td>{{ user.nama }}</td>
-            <td> {{ user.alamat }}</td>
+        <tbody *ngIf="mahasiswa != null">
+            <tr *ngFor="let siswa of mahasiswa.result.mahasiswa" routerLink="./{{ siswa.nim }}">
+            <th scope="row">{{ siswa.id }}</th>
+            <td>{{ siswa.nim }}</td>
+            <td>{{ siswa.nama_lengkap }}</td>
+            <td>{{ siswa.email }}</td>
+            <td>{{ siswa.email }}</td>
+            <td>{{ siswa.created_at }}</td>
             </tr>
         </tbody>
     </table>
