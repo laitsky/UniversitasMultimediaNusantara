@@ -11,9 +11,6 @@ export interface MahasiswaResult {
         nim: string;
         prodi: string;
         tanggal_lahir: string;
-        telepon: string;
         updated_at: string;
-        count: number;
-        mahasiswa: [];
     };
 }

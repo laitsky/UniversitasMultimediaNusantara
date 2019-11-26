@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Mahasiswa } from '../models/mahasiswa';
+import { MahasiswaResult } from '../models/mahasiswa-result';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +17,7 @@ export class PelayanApiService {
   getAllMahasiswa(): Observable<Mahasiswa> {
     return this.http.get<Mahasiswa>(`${this.urlApi}/api/mahasiswa`);
   }
-  getMahasiswaByNim(nim: string): Observable<Mahasiswa> {
-    return this.http.get<Mahasiswa>(`${this.urlApi}/api/mahasiswa/${nim}`);
+  getMahasiswaByNim(nim: string): Observable<MahasiswaResult> {
+    return this.http.get<MahasiswaResult>(`${this.urlApi}/api/mahasiswa/${nim}`);
   }
 }
