@@ -3,5 +3,5 @@ export interface Mahasiswa {
     result: {
         count: number,
         mahasiswa: []
-    };
+    }
 }
