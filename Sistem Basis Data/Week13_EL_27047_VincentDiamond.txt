@@ -1,0 +1,106 @@
+create database ikea;
+use ikea;
+source c:/ikea.sql
+
+
+delimiter //
+create procedure search( in kata varchar(30) )
+begin 
+declare x varchar(50);
+declare y varchar(50);
+declare output varchar(50);
+set  x = concat("%",kata,"%");
+set  y  = (select count(productname) from products where productname  like (x));
+set output='';
+if y = 0 THEN
+set output = "No";
+select  concat(output," Data Found") "Search Result";
+else
+set output = y;
+select  concat(output," Data Found") "Search Result" union all
+select concat(" "," ") union all
+ select productname from products where productname  like (x);
+end if;
+end//
+delimiter ;  
+
+call search("shelving");
+
+
+delimiter //
+create procedure people( in id varchar(5) )
+begin
+declare y varchar(50);
+declare output varchar(50);
+set y = (select count(employeeid) from employees where employeeid=id);
+set output = ' ';
+if y = 0 then 
+set output = "Invalid ! Please Try Again";
+select  concat("ID ",output) "Result";
+else 
+set output = "Found !";
+select concat("ID ", output) "Result" union 
+select concat("Employee ID     : ", employeeid) from employees where employeeid=id union 
+select concat("Full Name       : ",concat(firstname,'  ',lastname)) from employees where employeeid=id union 
+select concat("City            : ",city)  from employees where employeeid=id union 
+select concat("Postal Code     : ",postalcode) from employees where employeeid=id union 
+select concat("Phone Number    : ",phonenumber)from employees where employeeid=id;
+end if;
+end//
+delimiter ;
+
+call people('E0001');
+
+
+delimiter //
+create function email( namad varchar (50), namab varchar (50) )
+returns varchar(50)
+begin
+declare x varchar(50);
+set x = lower(concat(namad,".",namab,"@ikeamail.com"));
+return x;
+end//
+delimiter ;
+
+select concat(firstname,' ',lastname) as  "Full Name", email(firstname,lastname) as "Email" from employees;
+
+
+
+
+create table product_history (
+ articleid varchar(100),
+ productName varchar(100),
+ stock INT,
+ stock_changes INT,
+ update_date DATE,
+ foreign key (articleid) REFERENCES Products(ArticleID)
+);
+
+delimiter //
+create trigger catatan_perubahan before update on Products for each row
+begin
+ insert into product_history values (OLD.articleID, OLD.productName, OLD.stock, (NEW.stock - OLD.stock), curdate());
+end//
+delimiter ;
+
+
+update Products
+set Stock = 40
+where ArticleID = '999.322.72';
+
+
+update Products
+set Stock = 60
+where ArticleID = '999.318.09';
+
+select * from product_history;
+
+update Products
+set Stock = 50
+where ArticleID = '999.322.72';
+
+update Products
+set Stock = 50
+where ArticleID = '999.318.09';
+
+select * from product_history;
